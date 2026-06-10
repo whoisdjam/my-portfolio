@@ -3,6 +3,7 @@ import About from './About';
 import Contact from './Contact';
 import HeroSection from './HeroSection';
 import Skills from './Skills';
+import Experience from './Experience';
 import Works from './Works';
 
 const Main = ({nav, handleNav, closeNav}) => {
@@ -11,6 +12,7 @@ const Main = ({nav, handleNav, closeNav}) => {
         <HeroSection nav={nav} handleNav={handleNav} />
         <About />
         <Skills />
+        <Experience />
         <Works />
         <Contact />
     </div>

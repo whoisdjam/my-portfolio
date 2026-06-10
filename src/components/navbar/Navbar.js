@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { BiBookContent, BiEnvelope } from "react-icons/bi";
+import { BiBookContent, BiEnvelope, BiBriefcase } from "react-icons/bi";
 import { FaHome, FaLaptop } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { Link } from "react-scroll";
@@ -54,7 +54,7 @@ const Navbar = ({ nav, handleNav }) => {
 							onClick={handleNav}
 							to='home'
 							className='profile-name'>
-							Peace Jinadu-Paul
+							Sato Haruto
 						</Link>
 						<NavLinks handleNav={handleNav} />
 					</div>
@@ -96,6 +96,19 @@ const Navbar = ({ nav, handleNav }) => {
 							<FaLaptop className='mid-icon' />
 							<li className='mid-link' onClick={handleNav}>
 								Skills
+							</li>
+						</Link>
+						<Link
+							activeClass='active'
+							spy={true}
+							smooth={true}
+							offset={0}
+							duration={500}
+							to='experience'
+							className='mid-links'>
+							<BiBriefcase className='mid-icon' />
+							<li className='mid-link' onClick={handleNav}>
+								Experience
 							</li>
 						</Link>
 						{/* <Link

@@ -1,6 +1,6 @@
 .contact-box {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	/* display: grid; */
+	/* grid-template-columns: repeat(2, 1fr); */
 	column-gap: 2rem;
 }
 
@@ -121,8 +121,8 @@ textarea:-webkit-autofill:focus {
 /* Media Queries */
 @media screen and (max-width: 900px) {
 	.contact-box {
-		display: grid;
-		grid-template-columns: 1fr;
+		/* display: grid;
+		grid-template-columns: 1fr; */
 		row-gap: 5rem;
 	}
 

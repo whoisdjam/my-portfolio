@@ -1,187 +1,311 @@
-.works-box {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	flex-wrap: wrap;
-	gap: 1rem;
+.works {
+    padding: 4rem 0;
 }
 
-.work-link-group {
-	text-decoration: none;
+.works .heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-.works-container {
-	width: 100%;
+.heading-sub-text {
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
 }
 
-.works-card {
-	background-color: var(--card-blue-shade);
-	color: var(--nav-grey);
-	border-radius: 5px;
-	position: relative;
-	padding: 1rem 2rem;
-	width: 300px;
-	max-width: 300px;
-	margin: 0 auto;
-	height: 250px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	cursor: pointer;
-	transition: all 0.3s ease;
+.heading-text {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    margin: 0;
+    color: #ffffff;
+    letter-spacing: -0.03em;
 }
 
-.works-card:hover {
-	transform: translateY(-7px);
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.4rem;
 }
 
-.works-card:hover .work-title {
-	color: var(--nav-blue);
+.slider-window {
+    overflow: hidden;
+    width: 100%;
+    max-width: 980px;
+    padding: 0.5rem 0;
 }
 
-.top-work {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 2rem;
+.slider-track {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+    will-change: transform;
 }
 
-.top-work .right {
-	display: flex;
+.slide-card-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    position: relative; /* make link a positioning context so child z-index works predictably */
 }
 
-.mid-work {
-	margin-bottom: 2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+.slide-card {
+    position: relative;
+    z-index: 0; /* base stacking context */
+    flex: 0 0 320px;
+    height: 625px; /* fixed card height for consistent sizing */
+    background: rgba(8, 14, 34, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
 }
 
-.work-title {
-	font-size: 1.3rem;
-	font-weight: 700;
-	word-spacing: 5px;
-	margin-bottom: 0.5rem;
+.slide-card.active {
+    transform: scale(1.04);
+    z-index: 5; /* raise active card above siblings so clicks land on the visible card */
+    border-color: rgba(56, 136, 255, 0.45);
+    box-shadow: 0 34px 90px rgba(21, 58, 123, 0.18);
 }
 
-.work-desc {
-	font-size: 70%;
+.slide-card:hover {
+    transform: translateY(-8px);
 }
 
-.work-folder {
-	font-size: 2rem;
-	color: var(--nav-blue);
+.slide-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(4, 10, 24, 0.92) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
-.work-git,
-.work-link {
-	color: var(--nav-grey);
-	margin: 0 0.5rem;
-	font-size: 1.5rem;
-	display: flex;
-	align-items: center;
-	transition: all 0.3s ease;
-}
-.work-git:hover,
-.work-link:hover {
-	color: var(--nav-blue);
-}
-
-.bottom-work {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 5px;
-	justify-content: center;
-	align-items: center;
+.slide-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: rgba(13, 29, 66, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #73c0ff;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
 }
 
-.bottom-work small {
-	margin: 0 0.5rem;
-	font-size: 60%;
+.slide-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 680ms cubic-bezier(.2,.9,.2,1), filter 420ms ease;
+    will-change: transform;
+    flex: 0 0 260px;
 }
 
-/* New styles for tabs */
-.tabs {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 2rem;
-  }
-  
-  .tab {
-	padding: 0.5rem 1rem;
-	margin: 0 0.5rem;
-	background-color: var(--card-blue-shade);
-	color: var(--nav-grey);
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	font-size: 1rem;
-	outline: none;
-  }
-  
-  .tab:hover {
-	background-color: var(--nav-blue);
-	color: white;
-  }
-  
-  .tab.active {
-	background-color: var(--nav-blue);
-	color: white;
-  }
-  
-  /* Media Queries */
-  @media screen and (max-width: 750px) {
-	.tabs {
-	  flex-wrap: wrap;
-	}
-  
-	.tab {
-	  margin: 0.5rem;
-	}
-  }
-
-/* Media Queries */
-@media screen and (max-width: 750px) {
+.slide-body {
+    position: relative;
+    z-index: 2;
+    padding: 1.4rem 1.4rem 1.6rem;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-@media screen and (max-width: 550px) {
-	.work-desc {
-		font-size: 60%;
-	}
-
-	.work-folder {
-		font-size: 1.5rem;
-	}
-
-	.work-git,
-	.work-link {
-		font-size: 1.2rem;
-	}
-
-	.work-title {
-		font-size: 1.2rem;
-	}
-
-	.bottom-work small {
-		font-size: 50%;
-	}
+/* Truncate description so cards stay uniform */
+.slide-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    /* overflow: hidden; */
 }
 
-@media screen and (max-width: 320px) {
-	.works-card {
-		width: 250px;
-		max-width: 300px;
-		margin: 0 auto;
-		height: 250px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
+/* Image zoom and soft parallax on hover/active */
+.slide-card:hover .slide-img,
+.slide-card.active .slide-img {
+    transform: scale(1.06);
+    filter: saturate(1.05) contrast(1.02);
+}
+
+/* Make sure image stays clipped inside the rounded card */
+/* .slide-card { overflow: hidden; } */
+
+/* Subtle typography polish */
+.slide-title { letter-spacing: -0.01em; text-shadow: 0 1px 0 rgba(0,0,0,0.25); }
+.slide-desc { opacity: 0.95; }
+
+/* Accessible focus outline for keyboard users */
+.slide-card-link:focus-visible {
+    outline: 3px solid rgba(94,148,255,0.22);
+    outline-offset: 6px;
+    border-radius: 20px;
+}
+
+/* Slight glow for the number badge on active card */
+.slide-card.active .slide-number {
+    box-shadow: 0 6px 20px rgba(56,136,255,0.12), 0 1px 0 rgba(255,255,255,0.02) inset;
+}
+
+.slide-title {
+    font-size: 1.18rem;
+    font-weight: 800;
+    margin: 0 0 0.65rem;
+    color: #ffffff;
+}
+
+.slide-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.74);
+    line-height: 1.75;
+    margin: 0 0 1.35rem;
+    min-height: 4rem;
+}
+
+/* Ensure slide bodies are balanced so cards have consistent visual height */
+.slide-body {
+    min-height: 120px;
+}
+
+.slide-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.slide-tag {
+    padding: 0.45rem 0.85rem;
+    background: rgba(56, 136, 255, 0.14);
+    color: #7ebcff;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.slide-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(56, 136, 255, 0.22);
+    background: rgba(56, 136, 255, 0.1);
+    color: #a8d7ff;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.slide-link:hover {
+    transform: translateY(-1px);
+    background: rgba(56, 136, 255, 0.18);
+    border-color: rgba(56, 136, 255, 0.4);
+    color: #ffffff;
+}
+
+.slider-arrow {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5ff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.55rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.14);
+}
+
+.slider-arrow:hover {
+    transform: translateY(-2px);
+    border-color: rgba(94, 148, 255, 0.45);
+    color: #7fb7ff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+@media screen and (max-width: 980px) {
+    .slide-card {
+        flex: 0 0 280px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .slider-wrapper {
+        flex-direction: column;
+    }
+
+    .slider-arrow {
+        width: 44px;
+        height: 44px;
+    }
+
+    .slide-card {
+        flex: 0 0 100%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    /* Keep cards a consistent fixed height on small screens too so all cards match */
+    .slide-card {
+        height: 460px;
+    }
+
+    .slide-img {
+        height: 220px;
+        flex: 0 0 220px;
+    }
+
+    .slide-body {
+        padding: 1.2rem 1rem 1.3rem;
+    }
+}
+
+/* Responsive layout: 3 cards (desktop), 2 cards (tablet), 1 card (mobile) */
+@media screen and (min-width: 1100px) {
+    .slider-window { max-width: 1160px; }
+    .slide-card {
+        flex: 0 0 calc((100% - 64px) / 3);
+        min-width: 300px;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1099px) {
+    .slider-window { max-width: 920px; }
+    .slide-card {
+        flex: 0 0 calc((100% - 32px) / 2);
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .slider-window { max-width: 100%; }
+    .slide-card {
+        flex: 0 0 100%;
+        min-width: 260px;
+    }
 }
