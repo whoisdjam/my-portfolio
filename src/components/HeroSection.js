@@ -5,7 +5,6 @@ import { AiOutlineArrowUp } from "react-icons/ai";
 import { animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
 // import CV from "../data/Peace Jinadu-Paul Resume.pdf";
-import { HiOutlineDocumentText } from "react-icons/hi";
 
 const HeroSection = ({ nav, handleNav }) => {
 	const scrollToTop = () => {
@@ -33,20 +32,6 @@ const HeroSection = ({ nav, handleNav }) => {
 		visible: {
 			opacity: 1,
 			y: 0,
-			transition: {
-				duration: 1.4,
-			},
-		},
-	};
-
-	const contactVariants = {
-		hidden: {
-			opacity: 0,
-			x: "-50%",
-		},
-		visible: {
-			opacity: 1,
-			x: 0,
 			transition: {
 				duration: 1.4,
 			},
