@@ -15,7 +15,7 @@ Follow these steps to run My Portfolio in your local machine.
 ### Clone this repository
 
 ```bash
-git clone https://github.com/whoisdjam/my-portfolio-1.git
+git clone https://github.com/whoisdjam/my-portfolio.git
 ```
 
 ### Navigate to directory
