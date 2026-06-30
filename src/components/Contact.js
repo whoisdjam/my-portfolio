@@ -40,13 +40,13 @@ const Contact = () => {
 							</p>
 						</div>
 						<div className='contact-hello'>
-							{/* <a
+							<a
 								className='hello-links'
 								href='//wa.me/+819094373585'
 								target='_blank'
 								rel='noopener noreferrer'>
 								+81 70-9437-3585 (WhatsApp)
-							</a> */}
+							</a>
 							<a
 								className='hello-links'
 								href='//t.me/@swilson7565'
