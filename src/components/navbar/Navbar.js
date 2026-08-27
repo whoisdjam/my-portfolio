@@ -3,7 +3,6 @@ import { BiBookContent, BiEnvelope, BiBriefcase } from "react-icons/bi";
 import { FaHome, FaLaptop } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import { Link } from "react-scroll";
-import ProfileImg from "../../images/profile_me.jpg";
 import "../../styles/Navbar.css";
 import NavLinks from "./NavLinks";
 
@@ -42,9 +41,6 @@ const Navbar = ({ nav, handleNav }) => {
 					exit='hidden'
 					className='navbar-container'>
 					<div className='top-details'>
-						<div className='img__cover'>
-							<img src={ProfileImg} alt='Main' className='profile-pic-small' />
-						</div>
 						<Link
 							activeClass='active'
 							spy={true}
